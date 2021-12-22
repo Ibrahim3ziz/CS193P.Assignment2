@@ -24,36 +24,17 @@ struct Theme {
 
 
 
-let sportTheme = Theme(themeName: "SPORTS", cardColor: "green", emojis: ["🏓", "🎱", "🏀", "⚽️", "🏈", "🏐", "🎾", "🥎", "🥏", "🏑", "🏏", "🥅", "🥊", "🏂", "🏊‍♂️", "🧗‍♂️", "🚴‍♀️", "🎮"], numberOfPairsOfCards: 8)
+let sportTheme = Theme(themeName: "SPORTS", cardColor: "green", emojis: ["🏓", "🎱", "🏀", "⚽️", "🏈", "🏐", "🎾", "🥎", "🥏", "🏑", "🏏", "🥅", "🥊", "🏂", "🏊‍♂️", "🧗‍♂️", "🚴‍♀️", "🎮"], numberOfPairsOfCards: 6)
 
-let hallowenTheme = Theme(themeName: "HALLOWEN", cardColor: "red", emojis: ["💀", "👻", "👽", "🧙", "🧛", "🧟", "🦇", "🕷", "🕸", "🛸", "🎃", "🎭","🗡", "⚰"], numberOfPairsOfCards: 10)
+let hallowenTheme = Theme(themeName: "HALLOWEN", cardColor: "red", emojis: ["💀", "👻", "👽", "🧙", "🧛", "🧟", "🦇", "🕷", "🕸", "🛸", "🎃", "🎭","🗡", "⚰"], numberOfPairsOfCards: 8)
 
-let flagTheme = Theme(themeName: "FLAGS", cardColor: "black", emojis: ["🇦🇺", "🇦🇷", "🇩🇿", "🏳️", "🏴", "🇪🇬", "🎌", "🇯🇵", "🇱🇧", "🇧🇩", "🇧🇪", "🏴‍☠️", "🇨🇿", "🇳🇫"], numberOfPairsOfCards: 8)
+let flagTheme = Theme(themeName: "FLAGS", cardColor: "black", emojis: ["🇦🇺", "🇦🇷", "🇩🇿", "🏳️", "🏴", "🇪🇬", "🎌", "🇯🇵", "🇱🇧", "🇧🇩", "🇧🇪", "🏴‍☠️", "🇨🇿", "🇳🇫"], numberOfPairsOfCards: 10)
 
-let vehicleTheme = Theme(themeName: "VEHICLES", cardColor: "blue", emojis: ["🚗", "🚕", "🚛", "🚒", "🚜", "🚔", "🚍", "🚅", "🚝", "✈️", "🚂", "🚀", "🛳", "⛴", "🚢"], numberOfPairsOfCards: 8)
+let vehicleTheme = Theme(themeName: "VEHICLES", cardColor: "blue", emojis: ["🚗", "🚕", "🚛", "🚒", "🚜", "🚔", "🚍", "🚅", "🚝", "✈️", "🚂", "🚀", "🛳", "⛴", "🚢"], numberOfPairsOfCards: 12)
 
-let emojiTheme = Theme(themeName: "EMjOJIS", cardColor: "yellow", emojis: ["😀", "😁", "😂", "🤣", "😃", "😄", "😅","😍", "😘", "😗", "😙", "😚", "🙂", "🤗", "🤩", "🤔", "🤨", "😐"], numberOfPairsOfCards: 8)
-
-
+let emojiTheme = Theme(themeName: "EMjOJIS", cardColor: "yellow", emojis: ["😀", "😁", "😂", "🤣", "😃", "😄", "😅","😍", "😘", "😗", "😙", "😚", "🙂", "🤗", "🤩", "🤔", "🤨", "😐"], numberOfPairsOfCards: 14)
 
 
-enum themes {
-    case sport, hallowen, flag, vehicle, emoji
-    
-    var theme: Theme {
-        switch self {
-            case .sport:
-                return sportTheme
-            case .flag:
-                return flagTheme
-            case .hallowen:
-                return hallowenTheme
-            case .vehicle:
-                return vehicleTheme
-            case .emoji:
-                return emojiTheme
-        }
-    }
-}
+
 
 

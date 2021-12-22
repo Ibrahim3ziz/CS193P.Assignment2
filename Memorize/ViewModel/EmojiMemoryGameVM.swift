@@ -7,23 +7,19 @@
 
 import SwiftUI
 
-class EmojiMemoryGame: ObservableObject {
+class EmojiMemoryGameVM: ObservableObject {
+    typealias Card = MemoryGame<String>.Card
     
-    init() {
-        theme = allThemes.randomElement()!
-        gameModel = EmojiMemoryGame.createMemoryGame(theme: theme)
-    }
+
+    @Published private(set) var gameModel: MemoryGame<String> = createMemoryGame(theme: theme)
     
-    @Published private(set) var gameModel: MemoryGame<String>
-    private var theme: Theme
+    static var theme = emojiTheme
         
-    
-    var allThemes = [sportTheme,hallowenTheme,flagTheme,vehicleTheme,emojiTheme]
-    
+        
 
     
     var cardColor: Color {
-        switch theme.cardColor {
+        switch EmojiMemoryGameVM.theme.cardColor {
         case "green":
             return .green
         case "red":
@@ -41,28 +37,25 @@ class EmojiMemoryGame: ObservableObject {
     
 
     
-    var cards: Array<MemoryGame<String>.Card> {
+    var cards: [Card] {
         gameModel.cards
     }
     
     static func createMemoryGame(theme: Theme) -> MemoryGame<String> {
-        MemoryGame<String>(numberOfPairsOfCards: theme.numberOfPairsOfCards) { pairIndex in
-            theme.emojis[pairIndex]
-        }
+        MemoryGame<String>(numberOfPairsOfCards: theme.numberOfPairsOfCards, cardContentFactory: { pairIndex in
+            theme.emojis[pairIndex] }, theme: theme)
     }
-    
 
-    
 
     
     // MARK: - User  intents
     
-    func chooseCard(card: MemoryGame<String>.Card) {
+    func chooseCard(card: Card) {
         gameModel.chooseCard(card)
     }
     
     func newGame() {
-        gameModel = EmojiMemoryGame.createMemoryGame(theme: theme)
+        gameModel = EmojiMemoryGameVM.createMemoryGame(theme: EmojiMemoryGameVM.theme)
         gameModel.newGame()
     }
     
